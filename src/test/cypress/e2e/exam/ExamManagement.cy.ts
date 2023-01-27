@@ -5,14 +5,15 @@ import { CypressExamBuilder, convertCourseAfterMultiPart } from '../../support/r
 import { artemis } from '../../support/ArtemisTesting';
 import { generateUUID } from '../../support/utils';
 
+// Users
+const users = artemis.users;
+const admin = users.getAdmin();
+const studentOne = users.getStudentOne();
+
 // Requests
 const courseManagementRequests = artemis.requests.courseManagement;
 
-// User management
-const users = artemis.users;
-const admin = users.getAdmin();
-
-// Pageobjects
+// PageObjects
 const navigationBar = artemis.pageobjects.navigationBar;
 const courseManagement = artemis.pageobjects.course.management;
 const examManagement = artemis.pageobjects.exam.management;
@@ -37,7 +38,7 @@ describe('Exam management', () => {
         cy.login(admin);
         courseManagementRequests.createCourse(true).then((response) => {
             course = convertCourseAfterMultiPart(response);
-            courseManagementRequests.addStudentToCourse(course, users.getStudentOne());
+            courseManagementRequests.addStudentToCourse(course, studentOne);
             const examConfig = new CypressExamBuilder(course).title(examTitle).build();
             courseManagementRequests.createExam(examConfig).then((examResponse) => {
                 exam = examResponse.body;
@@ -151,7 +152,7 @@ describe('Exam management', () => {
         studentExamManagement.clickRegisterCourseStudents().then((request: Interception) => {
             expect(request.response!.statusCode).to.eq(200);
         });
-        cy.get('#registered-students').contains(users.getStudentOne().username).should('be.visible');
+        cy.get('#registered-students').contains(studentOne.username).should('be.visible');
     });
 
     it('Generates student exams', () => {
