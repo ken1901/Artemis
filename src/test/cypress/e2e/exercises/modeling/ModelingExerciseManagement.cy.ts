@@ -3,7 +3,7 @@ import { ModelingExercise } from 'app/entities/modeling-exercise.model';
 import { Course } from 'app/entities/course.model';
 import { dayjsToString } from '../../../support/utils';
 import { artemis } from '../../../support/ArtemisTesting';
-import { MODELING_EDITOR_CANVAS } from '../../../support/pageobjects/exercises/modeling/ModelingEditor';
+import { MODELING_EDITOR_CANVAS } from '../../../support/pageObjects/exercises/modeling/ModelingEditor';
 import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
@@ -16,9 +16,9 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const createModelingExercise = artemis.pageobjects.exercise.modeling.creation;
-const modelingExerciseExampleSubmission = artemis.pageobjects.assessment.modeling;
-const modelingEditor = artemis.pageobjects.exercise.modeling.editor;
+const createModelingExercise = artemis.pageObjects.exercise.modeling.creation;
+const modelingExerciseExampleSubmission = artemis.pageObjects.assessment.modeling;
+const modelingEditor = artemis.pageObjects.exercise.modeling.editor;
 
 // Common primitives
 let course: Course;

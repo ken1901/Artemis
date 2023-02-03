@@ -15,9 +15,9 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const courseManagementPage = artemis.pageobjects.course.management;
-const navigationBar = artemis.pageobjects.navigationBar;
-const courseCreationPage = artemis.pageobjects.course.creation;
+const courseManagementPage = artemis.pageObjects.course.management;
+const navigationBar = artemis.pageObjects.navigationBar;
+const courseCreationPage = artemis.pageObjects.course.creation;
 
 // Selectors
 const modalDeleteButton = '#delete';

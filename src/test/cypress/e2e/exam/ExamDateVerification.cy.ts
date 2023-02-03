@@ -15,10 +15,10 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const courseOverview = artemis.pageobjects.course.overview;
-const examNavigationBar = artemis.pageobjects.exam.navigationBar;
-const examStartEnd = artemis.pageobjects.exam.startEnd;
-const textEditor = artemis.pageobjects.exercise.text.editor;
+const courseOverview = artemis.pageObjects.course.overview;
+const examNavigationBar = artemis.pageObjects.exam.navigationBar;
+const examStartEnd = artemis.pageObjects.exam.startEnd;
+const textEditor = artemis.pageObjects.exercise.text.editor;
 
 describe('Exam date verification', () => {
     let course: Course;

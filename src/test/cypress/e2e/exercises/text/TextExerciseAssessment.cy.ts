@@ -15,12 +15,12 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const coursesPage = artemis.pageobjects.course.management;
-const courseAssessment = artemis.pageobjects.assessment.course;
-const exerciseAssessment = artemis.pageobjects.assessment.exercise;
-const textAssessment = artemis.pageobjects.assessment.text;
-const exerciseResult = artemis.pageobjects.exercise.result;
-const textFeedback = artemis.pageobjects.exercise.text.feedback;
+const coursesPage = artemis.pageObjects.course.management;
+const courseAssessment = artemis.pageObjects.assessment.course;
+const exerciseAssessment = artemis.pageObjects.assessment.exercise;
+const textAssessment = artemis.pageObjects.assessment.text;
+const exerciseResult = artemis.pageObjects.exercise.result;
+const textFeedback = artemis.pageObjects.exercise.text.feedback;
 
 describe('Text exercise assessment', () => {
     let course: Course;

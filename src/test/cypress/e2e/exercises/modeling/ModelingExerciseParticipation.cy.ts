@@ -12,8 +12,8 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const modelingEditor = artemis.pageobjects.exercise.modeling.editor;
-const courseOverview = artemis.pageobjects.course.overview;
+const modelingEditor = artemis.pageObjects.exercise.modeling.editor;
+const courseOverview = artemis.pageObjects.course.overview;
 
 // Common primitives
 let course: Course;

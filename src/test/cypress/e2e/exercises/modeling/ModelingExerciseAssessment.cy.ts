@@ -15,11 +15,11 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const assessmentEditor = artemis.pageobjects.assessment.modeling;
-const courseAssessmentDashboard = artemis.pageobjects.assessment.course;
-const exerciseAssessmentDashboard = artemis.pageobjects.assessment.exercise;
-const exerciseResult = artemis.pageobjects.exercise.result;
-const modelingFeedback = artemis.pageobjects.exercise.modeling.feedback;
+const assessmentEditor = artemis.pageObjects.assessment.modeling;
+const courseAssessmentDashboard = artemis.pageObjects.assessment.course;
+const exerciseAssessmentDashboard = artemis.pageObjects.assessment.exercise;
+const exerciseResult = artemis.pageObjects.exercise.result;
+const modelingFeedback = artemis.pageObjects.exercise.modeling.feedback;
 
 describe('Modeling Exercise Assessment Spec', () => {
     let course: Course;

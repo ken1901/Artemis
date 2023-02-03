@@ -13,8 +13,8 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const textEditor = artemis.pageobjects.exercise.text.editor;
-const courseOverview = artemis.pageobjects.course.overview;
+const textEditor = artemis.pageObjects.exercise.text.editor;
+const courseOverview = artemis.pageObjects.course.overview;
 
 describe('Text exercise participation', () => {
     let course: Course;

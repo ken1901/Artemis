@@ -1,5 +1,5 @@
 import { CypressUserManagement } from './users';
-import { ArtemisPageobjects } from './pageobjects/ArtemisPageobjects';
+import { ArtemisPageObjects } from './pageObjects/ArtemisPageObjects';
 import { ArtemisRequests } from './requests/ArtemisRequests';
 
 /**
@@ -14,7 +14,7 @@ export class ArtemisTesting {
     /**
      * Pageobjects, which contain code to automate certain pages in Artemis, which are used in multiple tests.
      */
-    public pageobjects = new ArtemisPageobjects();
+    public pageObjects = new ArtemisPageObjects();
 
     /**
      * Can be used to retrieve test users.

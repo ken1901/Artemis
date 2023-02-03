@@ -2,7 +2,7 @@ import { ProgrammingExercise } from 'app/entities/programming-exercise.model';
 import { Course } from 'app/entities/course.model';
 import scaSubmission from '../../../fixtures/programming_exercise_submissions/static_code_analysis/submission.json';
 import { artemis } from '../../../support/ArtemisTesting';
-import { makeSubmissionAndVerifyResults, startParticipationInProgrammingExercise } from '../../../support/pageobjects/exercises/programming/OnlineEditorPage';
+import { makeSubmissionAndVerifyResults, startParticipationInProgrammingExercise } from '../../../support/pageObjects/exercises/programming/OnlineEditorPage';
 import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
@@ -14,9 +14,9 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const editorPage = artemis.pageobjects.exercise.programming.editor;
-const scaConfig = artemis.pageobjects.exercise.programming.scaConfiguration;
-const scaFeedback = artemis.pageobjects.exercise.programming.scaFeedback;
+const editorPage = artemis.pageObjects.exercise.programming.editor;
+const scaConfig = artemis.pageObjects.exercise.programming.scaConfiguration;
+const scaFeedback = artemis.pageObjects.exercise.programming.scaFeedback;
 
 describe('Static code analysis tests', () => {
     let course: Course;

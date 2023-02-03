@@ -16,12 +16,12 @@ const admin = users.getAdmin();
 const courseManagement = artemis.requests.courseManagement;
 
 // PageObjects
-const textCreation = artemis.pageobjects.exercise.text.creation;
-const exampleSubmissions = artemis.pageobjects.exercise.text.exampleSubmissions;
-const exampleSubmissionCreation = artemis.pageobjects.exercise.text.exampleSubmissionCreation;
-const navigationBar = artemis.pageobjects.navigationBar;
-const courseManagementPage = artemis.pageobjects.course.management;
-const courseManagementExercises = artemis.pageobjects.course.managementExercises;
+const textCreation = artemis.pageObjects.exercise.text.creation;
+const exampleSubmissions = artemis.pageObjects.exercise.text.exampleSubmissions;
+const exampleSubmissionCreation = artemis.pageObjects.exercise.text.exampleSubmissionCreation;
+const navigationBar = artemis.pageObjects.navigationBar;
+const courseManagementPage = artemis.pageObjects.course.management;
+const courseManagementExercises = artemis.pageObjects.course.managementExercises;
 
 describe('Text exercise management', () => {
     let course: Course;

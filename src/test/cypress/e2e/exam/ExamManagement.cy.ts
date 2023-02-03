@@ -14,16 +14,16 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const navigationBar = artemis.pageobjects.navigationBar;
-const courseManagement = artemis.pageobjects.course.management;
-const examManagement = artemis.pageobjects.exam.management;
-const textCreation = artemis.pageobjects.exercise.text.creation;
-const programmingCreation = artemis.pageobjects.exercise.programming.creation;
-const quizCreation = artemis.pageobjects.exercise.quiz.creation;
-const modelingCreation = artemis.pageobjects.exercise.modeling.creation;
-const exerciseGroups = artemis.pageobjects.exam.exerciseGroups;
-const exerciseGroupCreation = artemis.pageobjects.exam.exerciseGroupCreation;
-const studentExamManagement = artemis.pageobjects.exam.studentExamManagement;
+const navigationBar = artemis.pageObjects.navigationBar;
+const courseManagement = artemis.pageObjects.course.management;
+const examManagement = artemis.pageObjects.exam.management;
+const textCreation = artemis.pageObjects.exercise.text.creation;
+const programmingCreation = artemis.pageObjects.exercise.programming.creation;
+const quizCreation = artemis.pageObjects.exercise.quiz.creation;
+const modelingCreation = artemis.pageObjects.exercise.modeling.creation;
+const exerciseGroups = artemis.pageObjects.exam.exerciseGroups;
+const exerciseGroupCreation = artemis.pageObjects.exam.exerciseGroupCreation;
+const studentExamManagement = artemis.pageObjects.exam.studentExamManagement;
 
 // Common primitives
 const uid = generateUUID();

@@ -11,8 +11,8 @@ const admin = users.getAdmin();
 // Requests
 const courseManagementRequest = artemis.requests.courseManagement;
 
-// Page Objects
-const courseExercisePage = artemis.pageobjects.course.exercise;
+// PageObjects
+const courseExercisePage = artemis.pageObjects.course.exercise;
 
 // Common primitives
 let courseName: string;

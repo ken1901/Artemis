@@ -14,8 +14,8 @@ const instructor = users.getInstructor();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const lectureManagement = artemis.pageobjects.lecture.management;
-const lectureCreation = artemis.pageobjects.lecture.creation;
+const lectureManagement = artemis.pageObjects.lecture.management;
+const lectureCreation = artemis.pageObjects.lecture.creation;
 
 describe('Lecture management', () => {
     let course: Course;

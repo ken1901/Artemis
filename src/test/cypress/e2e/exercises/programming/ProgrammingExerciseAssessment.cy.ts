@@ -16,13 +16,13 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const coursesPage = artemis.pageobjects.course.management;
-const courseAssessment = artemis.pageobjects.assessment.course;
-const exerciseAssessment = artemis.pageobjects.assessment.exercise;
-const programmingAssessment = artemis.pageobjects.assessment.programming;
-const exerciseResult = artemis.pageobjects.exercise.result;
-const programmingFeedback = artemis.pageobjects.exercise.programming.feedback;
-const onlineEditor = artemis.pageobjects.exercise.programming.editor;
+const coursesPage = artemis.pageObjects.course.management;
+const courseAssessment = artemis.pageObjects.assessment.course;
+const exerciseAssessment = artemis.pageObjects.assessment.exercise;
+const programmingAssessment = artemis.pageObjects.assessment.programming;
+const exerciseResult = artemis.pageObjects.exercise.result;
+const programmingFeedback = artemis.pageObjects.exercise.programming.feedback;
+const onlineEditor = artemis.pageObjects.exercise.programming.editor;
 
 describe('Programming exercise assessment', () => {
     let course: Course;

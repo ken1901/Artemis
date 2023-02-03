@@ -15,8 +15,8 @@ const admin = users.getAdmin();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const courseManagement = artemis.pageobjects.course.management;
-const quizCreation = artemis.pageobjects.exercise.quiz.creation;
+const courseManagement = artemis.pageObjects.course.management;
+const quizCreation = artemis.pageObjects.exercise.quiz.creation;
 
 // Common primitives
 let course: Course;

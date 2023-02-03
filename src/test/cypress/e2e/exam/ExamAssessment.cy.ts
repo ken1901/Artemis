@@ -8,7 +8,7 @@ import partiallySuccessful from '../../fixtures/programming_exercise_submissions
 import dayjs, { Dayjs } from 'dayjs/esm';
 import textSubmission from '../../fixtures/text_exercise_submission/text_exercise_submission.json';
 import multipleChoiceQuizTemplate from '../../fixtures/quiz_exercise_fixtures/multipleChoiceQuiz_template.json';
-import { makeSubmissionAndVerifyResults } from '../../support/pageobjects/exercises/programming/OnlineEditorPage';
+import { makeSubmissionAndVerifyResults } from '../../support/pageObjects/exercises/programming/OnlineEditorPage';
 
 // Users
 const users = artemis.users;
@@ -21,17 +21,17 @@ const tutor = users.getTutor();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const assessmentDashboard = artemis.pageobjects.assessment.course;
-const examStartEnd = artemis.pageobjects.exam.startEnd;
-const modelingEditor = artemis.pageobjects.exercise.modeling.editor;
-const modelingAssessment = artemis.pageobjects.assessment.modeling;
-const editorPage = artemis.pageobjects.exercise.programming.editor;
-const examAssessment = artemis.pageobjects.assessment.exam;
-const examNavigation = artemis.pageobjects.exam.navigationBar;
-const textEditor = artemis.pageobjects.exercise.text.editor;
-const exerciseAssessment = artemis.pageobjects.assessment.exercise;
-const multipleChoice = artemis.pageobjects.exercise.quiz.multipleChoice;
-const examManagement = artemis.pageobjects.exam.management;
+const assessmentDashboard = artemis.pageObjects.assessment.course;
+const examStartEnd = artemis.pageObjects.exam.startEnd;
+const modelingEditor = artemis.pageObjects.exercise.modeling.editor;
+const modelingAssessment = artemis.pageObjects.assessment.modeling;
+const editorPage = artemis.pageObjects.exercise.programming.editor;
+const examAssessment = artemis.pageObjects.assessment.exam;
+const examNavigation = artemis.pageObjects.exam.navigationBar;
+const textEditor = artemis.pageObjects.exercise.text.editor;
+const exerciseAssessment = artemis.pageObjects.assessment.exercise;
+const multipleChoice = artemis.pageObjects.exercise.quiz.multipleChoice;
+const examManagement = artemis.pageObjects.exam.management;
 
 // Common primitives
 let exam: Exam;
@@ -233,7 +233,7 @@ describe('Exam assessment', () => {
     });
 
     function startAssessing() {
-        artemis.pageobjects.assessment.course.clickExerciseDashboardButton();
+        assessmentDashboard.clickExerciseDashboardButton();
         exerciseAssessment.clickHaveReadInstructionsButton();
         exerciseAssessment.clickStartNewAssessment();
         cy.get('#assessmentLockedCurrentUser').should('be.visible');

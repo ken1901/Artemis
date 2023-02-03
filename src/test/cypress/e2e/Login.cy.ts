@@ -5,7 +5,7 @@ const users = artemis.users;
 const studentOne = users.getStudentOne();
 
 // PageObjects
-const loginPage = artemis.pageobjects.login;
+const loginPage = artemis.pageObjects.login;
 
 describe('Login page tests', () => {
     it('Logs in via the UI', () => {

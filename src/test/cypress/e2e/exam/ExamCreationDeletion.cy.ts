@@ -13,11 +13,11 @@ const admin = users.getAdmin();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const navigationBar = artemis.pageobjects.navigationBar;
-const courseManagementPage = artemis.pageobjects.course.management;
-const examManagementPage = artemis.pageobjects.exam.management;
-const examCreationPage = artemis.pageobjects.exam.creation;
-const examDetailsPage = artemis.pageobjects.exam.details;
+const navigationBar = artemis.pageObjects.navigationBar;
+const courseManagementPage = artemis.pageObjects.course.management;
+const examManagementPage = artemis.pageObjects.exam.management;
+const examCreationPage = artemis.pageObjects.exam.creation;
+const examDetailsPage = artemis.pageObjects.exam.details;
 
 // Common primitives
 const examData = {

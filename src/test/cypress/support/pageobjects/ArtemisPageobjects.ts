@@ -45,7 +45,7 @@ import { ExamParticipation } from './exam/ExamParticipation';
 /**
  * A class which encapsulates all pageobjects, which can be used to automate the Artemis UI.
  */
-export class ArtemisPageobjects {
+export class ArtemisPageObjects {
     login = new LoginPage();
     navigationBar = new NavigationBar();
     course = {

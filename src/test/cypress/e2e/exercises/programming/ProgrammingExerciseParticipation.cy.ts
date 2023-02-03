@@ -8,7 +8,7 @@ import {
     ProgrammingExerciseSubmission,
     makeSubmissionAndVerifyResults,
     startParticipationInProgrammingExercise,
-} from '../../../support/pageobjects/exercises/programming/OnlineEditorPage';
+} from '../../../support/pageObjects/exercises/programming/OnlineEditorPage';
 import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
@@ -22,7 +22,7 @@ const studentThree = users.getStudentThree();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const editorPage = artemis.pageobjects.exercise.programming.editor;
+const editorPage = artemis.pageObjects.exercise.programming.editor;
 
 describe('Programming exercise participations', () => {
     let course: Course;

@@ -6,7 +6,7 @@ import submission from '../../fixtures/programming_exercise_submissions/all_succ
 import { Course } from 'app/entities/course.model';
 import { generateUUID } from '../../support/utils';
 import { EXERCISE_TYPE } from '../../support/constants';
-import { AdditionalData, Exercise } from 'src/test/cypress/support/pageobjects/exam/ExamParticipation';
+import { AdditionalData, Exercise } from 'src/test/cypress/support/pageObjects/exam/ExamParticipation';
 
 // User management
 const users = artemis.users;
@@ -17,8 +17,8 @@ const studentOne = users.getStudentOne();
 const courseManagementRequest = artemis.requests.courseManagement;
 
 // PageObjects
-const examParticipation = artemis.pageobjects.exam.participation;
-const exerciseGroupCreation = artemis.pageobjects.exam.exerciseGroupCreation;
+const examParticipation = artemis.pageObjects.exam.participation;
+const exerciseGroupCreation = artemis.pageObjects.exam.exerciseGroupCreation;
 
 // Common primitives
 const textFixture = 'loremIpsum.txt';
