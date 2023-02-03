@@ -1,6 +1,6 @@
 import { Interception } from 'cypress/types/net-stubbing';
 import { Course } from 'app/entities/course.model';
-import { CypressExamBuilder, convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
+import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 import dayjs from 'dayjs/esm';
 import { artemis } from '../../../support/ArtemisTesting';
 import { dayjsToString, generateUUID, trimDate } from '../../../support/utils';
@@ -11,6 +11,7 @@ const admin = users.getAdmin();
 
 // Requests
 const courseManagementRequest = artemis.requests.courseManagement;
+const examBuilder = artemis.requests.examBuilder;
 
 // PageObjects
 const navigationBar = artemis.pageObjects.navigationBar;
@@ -92,7 +93,7 @@ describe('Test Exam creation/deletion', () => {
     describe('Test exam deletion', () => {
         beforeEach(() => {
             examData.title = 'exam' + generateUUID();
-            const exam = new CypressExamBuilder(course).title(examData.title).testExam().build();
+            const exam = examBuilder.course(course).title(examData.title).testExam().build();
             courseManagementRequest.createExam(exam).then((examResponse) => {
                 examId = examResponse.body.id;
             });

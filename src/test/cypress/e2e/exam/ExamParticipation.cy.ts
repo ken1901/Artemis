@@ -1,5 +1,5 @@
 import { Exam } from 'app/entities/exam.model';
-import { CypressExamBuilder, convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
+import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import { artemis } from '../../support/ArtemisTesting';
 import dayjs from 'dayjs/esm';
 import submission from '../../fixtures/programming_exercise_submissions/all_successful/submission.json';
@@ -15,6 +15,7 @@ const studentOne = users.getStudentOne();
 
 // Requests
 const courseManagementRequest = artemis.requests.courseManagement;
+const examBuilder = artemis.requests.examBuilder;
 
 // PageObjects
 const examParticipation = artemis.pageObjects.exam.participation;
@@ -34,7 +35,8 @@ describe('Exam participation', () => {
         cy.login(admin);
         courseManagementRequest.createCourse(true).then((response) => {
             course = convertCourseAfterMultiPart(response);
-            const examContent = new CypressExamBuilder(course)
+            const examContent = examBuilder
+                .course(course)
                 .title(examTitle)
                 .visibleDate(dayjs().subtract(3, 'days'))
                 .startDate(dayjs().subtract(2, 'days'))

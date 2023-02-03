@@ -3,7 +3,7 @@ import { Course } from 'app/entities/course.model';
 import { ExerciseGroup } from 'app/entities/exercise-group.model';
 import { Exam } from 'app/entities/exam.model';
 import { artemis } from '../../support/ArtemisTesting';
-import { CypressAssessmentType, CypressExamBuilder, convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
+import { CypressAssessmentType, convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import partiallySuccessful from '../../fixtures/programming_exercise_submissions/partially_successful/submission.json';
 import dayjs, { Dayjs } from 'dayjs/esm';
 import textSubmission from '../../fixtures/text_exercise_submission/text_exercise_submission.json';
@@ -19,6 +19,7 @@ const tutor = users.getTutor();
 
 // Requests
 const courseManagementRequest = artemis.requests.courseManagement;
+const examBuilder = artemis.requests.examBuilder;
 
 // PageObjects
 const assessmentDashboard = artemis.pageObjects.assessment.course;
@@ -241,7 +242,8 @@ describe('Exam assessment', () => {
 
     function prepareExam(end: dayjs.Dayjs, resultDate = end.add(1, 'seconds')) {
         cy.login(admin);
-        const examContent = new CypressExamBuilder(course)
+        const examContent = examBuilder
+            .course(course)
             .visibleDate(dayjs().subtract(1, 'hour'))
             .startDate(dayjs())
             .endDate(end)

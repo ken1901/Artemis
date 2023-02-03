@@ -1,7 +1,7 @@
 import { Interception } from 'cypress/types/net-stubbing';
 import { Exam } from 'app/entities/exam.model';
 import { Course } from 'app/entities/course.model';
-import { CypressExamBuilder, convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
+import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import { artemis } from '../../support/ArtemisTesting';
 import { generateUUID } from '../../support/utils';
 
@@ -12,6 +12,7 @@ const studentOne = users.getStudentOne();
 
 // Requests
 const courseManagementRequest = artemis.requests.courseManagement;
+const examBuilder = artemis.requests.examBuilder;
 
 // PageObjects
 const navigationBar = artemis.pageObjects.navigationBar;
@@ -39,7 +40,7 @@ describe('Exam management', () => {
         courseManagementRequest.createCourse(true).then((response) => {
             course = convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
-            const examConfig = new CypressExamBuilder(course).title(examTitle).build();
+            const examConfig = examBuilder.course(course).title(examTitle).build();
             courseManagementRequest.createExam(examConfig).then((examResponse) => {
                 exam = examResponse.body;
             });
