@@ -1,5 +1,4 @@
 import { Interception } from 'cypress/types/net-stubbing';
-import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import { BASE_API, PUT } from '../../support/constants';
 import { artemis } from '../../support/ArtemisTesting';
 import { dayjsToString, generateUUID, trimDate } from '../../support/utils';
@@ -64,7 +63,7 @@ describe('Course management', () => {
 
         beforeEach(() => {
             courseManagementRequest.createCourse(false, courseData.title, courseData.shortName).then((response) => {
-                course = convertCourseAfterMultiPart(response);
+                course = courseManagementRequest.convertCourseAfterMultiPart(response);
             });
         });
 
@@ -212,7 +211,7 @@ describe('Course management', () => {
                     courseManagementRequest
                         .createCourse(false, courseData.title, courseData.shortName, day().subtract(2, 'hours'), day().add(2, 'hours'), 'icon.png', blob)
                         .then((response) => {
-                            course = convertCourseAfterMultiPart(response);
+                            course = courseManagementRequest.convertCourseAfterMultiPart(response);
                             courseId = course.id!;
                             cy.intercept(PUT, BASE_API + 'courses/' + courseId).as('updateCourseQuery');
                         });
@@ -233,7 +232,7 @@ describe('Course management', () => {
 
         it('Deletes not existing course icon', () => {
             courseManagementRequest.createCourse(false, courseData.title, courseData.shortName, day().subtract(2, 'hours'), day().add(2, 'hours')).then((response) => {
-                course = convertCourseAfterMultiPart(response);
+                course = courseManagementRequest.convertCourseAfterMultiPart(response);
                 courseId = course.id!;
             });
             navigationBar.openCourseManagement();

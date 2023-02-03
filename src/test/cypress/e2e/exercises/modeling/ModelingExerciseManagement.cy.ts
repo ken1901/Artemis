@@ -4,7 +4,6 @@ import { Course } from 'app/entities/course.model';
 import { dayjsToString } from '../../../support/utils';
 import { artemis } from '../../../support/ArtemisTesting';
 import { MODELING_EDITOR_CANVAS } from '../../../support/pageObjects/exercises/modeling/ModelingEditor';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -29,7 +28,7 @@ describe('Modeling Exercise Management Spec', () => {
     before('Create a course', () => {
         cy.login(admin);
         courseManagementRequest.createCourse().then((response: Cypress.Response<Course>) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addInstructorToCourse(course, instructor);
             courseManagementRequest.addStudentToCourse(course, studentOne);
         });

@@ -3,7 +3,6 @@ import { Course } from 'app/entities/course.model';
 import scaSubmission from '../../../fixtures/programming_exercise_submissions/static_code_analysis/submission.json';
 import { artemis } from '../../../support/ArtemisTesting';
 import { makeSubmissionAndVerifyResults, startParticipationInProgrammingExercise } from '../../../support/pageObjects/exercises/programming/OnlineEditorPage';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -45,7 +44,7 @@ describe('Static code analysis tests', () => {
     function setupCourseAndProgrammingExercise() {
         cy.login(admin);
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
             courseManagementRequest.createProgrammingExercise({ course }, 50).then((dto) => {
                 exercise = dto.body;

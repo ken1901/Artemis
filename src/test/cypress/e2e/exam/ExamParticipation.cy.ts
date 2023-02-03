@@ -1,5 +1,4 @@
 import { Exam } from 'app/entities/exam.model';
-import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import { artemis } from '../../support/ArtemisTesting';
 import dayjs from 'dayjs/esm';
 import submission from '../../fixtures/programming_exercise_submissions/all_successful/submission.json';
@@ -34,7 +33,7 @@ describe('Exam participation', () => {
     before(() => {
         cy.login(admin);
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             const examContent = examBuilder
                 .course(course)
                 .title(examTitle)

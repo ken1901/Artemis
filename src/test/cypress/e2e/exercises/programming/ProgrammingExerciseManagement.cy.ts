@@ -4,7 +4,7 @@ import { Course } from 'app/entities/course.model';
 import { DELETE } from '../../../support/constants';
 import { artemis } from '../../../support/ArtemisTesting';
 import { generateUUID } from '../../../support/utils';
-import { PROGRAMMING_EXERCISE_BASE, convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
+import { PROGRAMMING_EXERCISE_BASE } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -25,7 +25,7 @@ describe('Programming Exercise Management', () => {
     before(() => {
         cy.login(admin);
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             expect(course).property('id').to.be.a('number');
         });
     });

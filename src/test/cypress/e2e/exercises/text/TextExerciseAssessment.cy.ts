@@ -2,7 +2,6 @@ import { Interception } from 'cypress/types/net-stubbing';
 import { TextExercise } from 'app/entities/text-exercise.model';
 import { Course } from 'app/entities/course.model';
 import { artemis } from 'src/test/cypress/support/ArtemisTesting';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -88,7 +87,7 @@ describe('Text exercise assessment', () => {
     function createCourseWithTextExercise() {
         cy.login(admin);
         return courseManagementRequest.createCourse().then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
             courseManagementRequest.addTutorToCourse(course, tutor);
             courseManagementRequest.addInstructorToCourse(course, instructor);

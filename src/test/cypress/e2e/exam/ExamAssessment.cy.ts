@@ -3,7 +3,7 @@ import { Course } from 'app/entities/course.model';
 import { ExerciseGroup } from 'app/entities/exercise-group.model';
 import { Exam } from 'app/entities/exam.model';
 import { artemis } from '../../support/ArtemisTesting';
-import { CypressAssessmentType, convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
+import { CypressAssessmentType } from '../../support/requests/CourseManagementRequests';
 import partiallySuccessful from '../../fixtures/programming_exercise_submissions/partially_successful/submission.json';
 import dayjs, { Dayjs } from 'dayjs/esm';
 import textSubmission from '../../fixtures/text_exercise_submission/text_exercise_submission.json';
@@ -50,7 +50,7 @@ describe('Exam assessment', () => {
     before('Create a course', () => {
         cy.login(admin);
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
             courseManagementRequest.addTutorToCourse(course, tutor);
         });

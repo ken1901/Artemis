@@ -5,7 +5,6 @@ import { artemis } from '../../../support/ArtemisTesting';
 import { generateUUID } from '../../../support/utils';
 import multipleChoiceTemplate from '../../../fixtures/quiz_exercise_fixtures/multipleChoiceQuiz_template.json';
 import { DELETE } from '../../../support/constants';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -26,7 +25,7 @@ describe('Quiz Exercise Management', () => {
     before('Set up course', () => {
         cy.login(admin);
         courseManagementRequest.createCourse().then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
         });
     });
 

@@ -2,7 +2,6 @@ import { Interception } from 'cypress/types/net-stubbing';
 import { TextExercise } from 'app/entities/text-exercise.model';
 import { Course } from 'app/entities/course.model';
 import { artemis } from '../../../support/ArtemisTesting';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -23,7 +22,7 @@ describe('Text exercise participation', () => {
     before(() => {
         cy.login(admin);
         courseManagementRequest.createCourse().then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
             courseManagementRequest.createTextExercise({ course }).then((exerciseResponse: Cypress.Response<TextExercise>) => {
                 exercise = exerciseResponse.body;

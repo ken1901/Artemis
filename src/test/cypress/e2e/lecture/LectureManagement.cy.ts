@@ -3,7 +3,6 @@ import { Course } from 'app/entities/course.model';
 import { artemis } from '../../support/ArtemisTesting';
 import { generateUUID } from '../../support/utils';
 import dayjs from 'dayjs/esm';
-import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -24,7 +23,7 @@ describe('Lecture management', () => {
     before(() => {
         cy.login(admin);
         courseManagementRequest.createCourse().then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addInstructorToCourse(course, instructor);
         });
     });

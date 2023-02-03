@@ -1,7 +1,6 @@
 import { artemis } from '../../support/ArtemisTesting';
 import { Course } from '../../../../main/webapp/app/entities/course.model';
 import multipleChoiceQuizTemplate from '../../fixtures/quiz_exercise_fixtures/multipleChoiceQuiz_template.json';
-import { convertCourseAfterMultiPart } from '../../support/requests/CourseManagementRequests';
 import { generateUUID } from '../../support/utils';
 
 // Users
@@ -28,7 +27,7 @@ describe('Course Exercise', () => {
         courseName = 'Cypress course' + uid;
         courseShortName = 'cypress' + uid;
         courseManagementRequest.createCourse(false, courseName, courseShortName).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseId = course.id!;
         });
     });

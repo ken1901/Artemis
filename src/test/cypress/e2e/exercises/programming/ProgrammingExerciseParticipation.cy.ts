@@ -9,7 +9,6 @@ import {
     makeSubmissionAndVerifyResults,
     startParticipationInProgrammingExercise,
 } from '../../../support/pageObjects/exercises/programming/OnlineEditorPage';
-import { convertCourseAfterMultiPart } from '../../../support/requests/CourseManagementRequests';
 
 // Users
 const users = artemis.users;
@@ -60,7 +59,7 @@ describe('Programming exercise participations', () => {
     function setupCourseAndProgrammingExercise() {
         cy.login(admin, '/');
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertCourseAfterMultiPart(response);
+            course = courseManagementRequest.convertCourseAfterMultiPart(response);
             courseManagementRequest.addStudentToCourse(course, studentOne);
             courseManagementRequest.addStudentToCourse(course, studentTwo);
             courseManagementRequest.addStudentToCourse(course, studentThree);

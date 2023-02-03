@@ -511,6 +511,15 @@ export class CourseManagementRequests {
             body: lecture,
         });
     }
+
+    convertCourseAfterMultiPart(response: Cypress.Response<Course>): Course {
+        // Cypress currently has some issues with our multipart request, parsing this not as an object but as an ArrayBuffer
+        // Once this is fixed (and hence the expect statements below fail), we can remove the additional parsing
+        expect(response.body).not.to.be.an('object');
+        expect(response.body).to.be.an('ArrayBuffer');
+
+        return parseArrayBufferAsJsonObject(response.body as ArrayBuffer);
+    }
 }
 
 export enum CypressAssessmentType {
@@ -524,13 +533,4 @@ export enum CypressExerciseType {
     MODELING,
     TEXT,
     QUIZ,
-}
-
-export function convertCourseAfterMultiPart(response: Cypress.Response<Course>): Course {
-    // Cypress currently has some issues with our multipart request, parsing this not as an object but as an ArrayBuffer
-    // Once this is fixed (and hence the expect statements below fail), we can remove the additional parsing
-    expect(response.body).not.to.be.an('object');
-    expect(response.body).to.be.an('ArrayBuffer');
-
-    return parseArrayBufferAsJsonObject(response.body as ArrayBuffer);
 }
