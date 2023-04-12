@@ -138,12 +138,12 @@ describe('Exam assessment', () => {
 
         it('Assesses quiz automatically', () => {
             if (dayjs().isBefore(examEnd)) {
-                cy.wait(examEnd.diff(dayjs(), 'ms') + 10000);
+                cy.wait(examEnd.diff(dayjs(), 'ms') + 5000);
             }
-            cy.login(admin, `/course-management/${course.id}/exams/${exam.id}/assessment-dashboard`);
+            cy.login(instructor, `/course-management/${course.id}/exams/${exam.id}/assessment-dashboard`);
             courseAssessment.clickEvaluateQuizzes().its('response.statusCode').should('eq', 200);
             if (dayjs().isBefore(resultDate)) {
-                cy.wait(examEnd.diff(dayjs(), 'ms'));
+                cy.wait(resultDate.diff(dayjs(), 'ms') + 5000);
             }
             cy.login(studentOne, '/courses/' + course.id + '/exams/' + exam.id);
             // Sometimes the feedback fails to load properly on the first load...
