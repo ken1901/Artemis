@@ -12,7 +12,9 @@ describe('Logout tests', () => {
         cy.login(admin);
 
         courseManagementRequest.createCourse(true).then((response) => {
-            course = convertModelAfterMultiPart(response);
+            course = convertCourseAfterMultiPart(response);
+            courseManagementRequest.addStudentToCourse(course, studentOne);
+            courseManagementRequest.addStudentToCourse(course, studentTwo);
             courseManagementRequest.createModelingExercise({ course }).then((resp: Cypress.Response<ModelingExercise>) => {
                 modelingExercise = resp.body;
             });
