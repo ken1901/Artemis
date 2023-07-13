@@ -282,7 +282,7 @@ public class GitLabService extends AbstractVersionControlService {
             gitlab.getProjectApi().addHook(repositoryPath, notificationUrl, hook, false, secretToken);
         }
         catch (GitLabApiException e) {
-            throw new GitLabException("Unable to add webhook for " + repositoryUrl, e);
+            throw new GitLabException("Unable to add webhook for " + notificationUrl, e);
         }
     }
 
